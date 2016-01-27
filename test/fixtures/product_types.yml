@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  parent_id: 1
+  active: false
+  rgt: 1
+  lft: 1
+
+two:
+  name: MyString
+  parent_id: 1
+  active: false
+  rgt: 1
+  lft: 1

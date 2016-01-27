@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  product_keywords: MyText
+  product_type_id: 1
+  prototype_id: 1
+  available_at: 2016-01-18 18:34:09
+  deleted_at: 2016-01-18 18:34:09
+  featured: false
+  active: false
+  brand_id: 1
+
+two:
+  name: MyString
+  description: MyText
+  product_keywords: MyText
+  product_type_id: 1
+  prototype_id: 1
+  available_at: 2016-01-18 18:34:09
+  deleted_at: 2016-01-18 18:34:09
+  featured: false
+  active: false
+  brand_id: 1
