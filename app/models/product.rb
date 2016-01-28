@@ -30,4 +30,11 @@ class Product < ActiveRecord::Base
       images.empty? ? ["no_image_#{image_size.to_s}.jpg"] : images.map{|i| i.photo.url(image_size) }
     end
   end
+
+
+  private
+
+    def has_active_variants?
+      active_variants.any?{|v| v.is_available? }
+    end
 end

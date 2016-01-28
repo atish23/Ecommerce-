@@ -18,14 +18,15 @@ class ProductsController < ApplicationController
   def show
   	@products = Product.all
   	@product = Product.active.find(params[:id])
+    form_info
   end
 
   def create
 
   end
 
-  # def form_info
-  #   @cart_item = CartItem.new
-  # end
+  def form_info
+    @cart_item = CartItem.new
+  end
 
 end

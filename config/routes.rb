@@ -4,10 +4,10 @@ Rails.application.routes.draw do
     resources :products, only:[:show,:index,:create]
 
     root 'welcome#index'
-    devise_for :users
+    devise_for :users , controllers: {sessions: "sessions"}
 
      namespace :shopping do
-      resources :carts
+      resources :cart_items
   end
    
 end
