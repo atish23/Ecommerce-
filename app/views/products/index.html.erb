@@ -10,14 +10,14 @@
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Features Items</h2>
-						<% @products.each do |product|%>
+						<% @products.each_with_index do |product,i|%>
 							<div class="col-sm-4">
 								<div class="product-image-wrapper">
 									<div class="single-products">
 										<div class="productinfo text-center">
 											<%= link_to image_tag(product.featured_image), product_path(product), title: product.name, class:  'clearfix' %>
 											<h2>$56</h2>
-											<p><%= product.name%></p>
+											<p><%= link_to product.name,product_path(product) %></p>
 											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 										</div>
 										<div class="product-overlay">
@@ -25,6 +25,9 @@
 												<h2>$56</h2>
 												<p><%= product.name%></p>
 												<!-- <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a> -->
+												<p><%= link_to product.name,product_path(product)%></p>
+												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+
 											</div>
 										</div>
 									</div>
