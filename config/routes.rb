@@ -5,5 +5,9 @@ Rails.application.routes.draw do
 
     root 'welcome#index'
     devise_for :users
+
+     namespace :shopping do
+      resources :carts
+  end
    
 end
