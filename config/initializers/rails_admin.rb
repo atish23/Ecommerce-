@@ -9,7 +9,7 @@ RailsAdmin.config do |config|
    config.current_user_method(&:current_user)
 
   ## == Cancan ==
-  # config.authorize_with :cancan
+   config.authorize_with :cancan
 
   ## == Pundit ==
   # config.authorize_with :pundit
@@ -35,7 +35,7 @@ RailsAdmin.config do |config|
     # history_show
   end
   # To Hide Unwanted Tables from admin dashboard
-  hidden_model = ['ProductProperty','ProductType','Cart','CartItem','Country','PrototypeProperty','State']
+  hidden_model = ['ProductProperty','ProductType','Cart','CartItem','PrototypeProperty','State','UserRole']
     hidden_model.each do |hidden|
       config.model hidden do
        visible false

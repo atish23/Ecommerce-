@@ -7,4 +7,18 @@ class User < ActiveRecord::Base
   has_many    :user_roles, dependent: :destroy
   has_many    :roles,through: :user_roles
   has_many    :carts, dependent: :destroy
+
+
+  def role?(role_name)
+    roles.any? {|r| r.name == role_name.to_s}
+  end
+
+  def admin?
+  	role?(:adminstrator) || role?(:super_administrator)
+  end
+
+  def super_admin?
+  	role?(:super_administrator) 
+  end
+  
 end
