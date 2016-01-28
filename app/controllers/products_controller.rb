@@ -11,10 +11,12 @@ class ProductsController < ApplicationController
   	else
   		@products = products
   	end
+
   end
 
   def show
-  	
+  	@products = Product.all
+  	@product = Product.active.find(params[:id])
   end
 
   def create
