@@ -32,7 +32,7 @@ roles.each do |role|
 end
 
 puts "USER"
-User.create(email: "admin@admin.com", password: '12345678', password_confirmation: '12345678')
+u = User.create(email: "admin@admin.com", password: '12345678', password_confirmation: '12345678')
 
 puts "UserRole"
-UserRole.create(role_id: '1', user_id: '1')
+UserRole.create(role_id: '1', user_id: u.id)
