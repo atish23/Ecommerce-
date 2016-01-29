@@ -22,4 +22,7 @@ class User < ActiveRecord::Base
   	role?(:super_administrator) 
   end
 
+  def cart_count
+    $redis.scard "cart#{id}"
+  end
 end

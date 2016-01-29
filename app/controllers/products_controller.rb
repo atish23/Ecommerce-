@@ -17,7 +17,10 @@ class ProductsController < ApplicationController
 
   def show
   	@products = Product.all
-  	@product = Product.active.find(params[:id])
+    @product = Product.find(params[:id])
+    @cart_action = @product.cart_action current_user.try :id
+    #raise @cart_action.inspect
+    # form_info
   end
 
   def create
