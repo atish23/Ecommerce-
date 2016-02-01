@@ -18,10 +18,10 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :product_properties, reject_if: proc { |attributes| attributes['description'].blank? }, allow_destroy: true
   accepts_nested_attributes_for :images,             reject_if: proc { |t| (t['photo'].nil? && t['photo_from_link'].blank? && t['id'].blank?) }, allow_destroy: true
 
-  validates :product_type_id, presence: true
-  validates :name, presence: true
+  # validates :product_type_id, presence: true
+  # validates :name, presence: true
 
-  validate :ensure_available
+  # validate :ensure_available
 
 
  def self.featured
@@ -51,7 +51,11 @@ class Product < ActiveRecord::Base
     images.first ? images.first.photo.url(image_size) : "no_image_#{image_size.to_s}.jpg"
   end
   end
-
+  def featured_image1(image_size = :large)
+  Rails.cache.fetch("Product-featured_image-#{id}-#{image_size}") do
+    images.first ? images.first.photo.url(image_size) : "no_image_#{image_size.to_s}.jpg"
+  end
+  end
   def image_urls(image_size = :small)
     Rails.cache.fetch("Product-image_urls-#{id}-#{image_size}") do
       images.empty? ? ["no_image_#{image_size.to_s}.jpg"] : images.map{|i| i.photo.url(image_size) }
@@ -72,11 +76,11 @@ private
       active_variants.any?{|v| v.is_available? }
     end
 
-    def ensure_available
-      if active? && deleted_at_changed?
-        self.errors.add(:base, 'There must be active variants.')  if active_variants.blank?
-        self.errors.add(:base, 'Variants must have inventory.')   unless active_variants.any?{|v| v.is_available? }
-        self.deleted_at = deleted_at_was if active_variants.blank? || !active_variants.any?{|v| v.is_available? }
-      end
-    end
+    # def ensure_available
+    #   if active? && deleted_at_changed?
+    #     self.errors.add(:base, 'There must be active variants.')  if active_variants.blank?
+    #     self.errors.add(:base, 'Variants must have inventory.')   unless active_variants.any?{|v| v.is_available? }
+    #     self.deleted_at = deleted_at_was if active_variants.blank? || !active_variants.any?{|v| v.is_available? }
+    #   end
+    # end
 end
