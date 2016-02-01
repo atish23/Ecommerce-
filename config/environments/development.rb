@@ -38,4 +38,12 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  PAPERCLIP_STORAGE_OPTS = {  :styles => {:mini => '48x48>',
+                                          :small    => '100x100>',
+                                          :medium   => '200x200>',
+                                          :product  => '320x320>',
+                                          :large    => '600x600>' },
+                              :default_style => :product,
+                              :url => "/assets/products/:id/:style/:basename.:extension",
+                              :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension" }
 end

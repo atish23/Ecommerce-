@@ -1,0 +1,42 @@
+					<div class="category-tab"><!--category-tab-->
+						<div class="col-sm-12">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#tshirt" data-toggle="tab">T-Shirt</a></li>
+								<li><a href="#kids" data-toggle="tab">Kids</a></li>
+							</ul>
+						</div>
+						<div class="tab-content">
+							<div class="tab-pane fade active in" id="tshirt" >
+								<% @products.each do |product|%>
+								<div class="col-sm-3">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<%= link_to image_tag(product.featured_image), product_path(product), title: product.name, class:  'clearfix' %>
+												<h2>$56</h2>
+												<p><%= product.name%></p>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							<% end %>
+							</div>
+							<div class="tab-pane fade" id="kids" >
+							<% @products.each do |product|%>
+								<div class="col-sm-3">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<%= link_to image_tag(product.featured_image), product_path(product), title: product.name, class:  'clearfix' %>
+												<h2>$56</h2>
+												<p><%= product.name%></p>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							<% end %>
+							</div>
+						</div>
+					</div><!--/category-tab-->

@@ -1,23 +1,59 @@
-<div id="mycart" class="small-10 small-centered medium-8 large-8 column">
-  <div class="p1 glassy-bg mb1 text-center radius-l1 radius-r1">
-    <h4>My Cart</h4>
-    <p class="mb0"> You've selected <span class="cart-count"><%=current_user.cart_count%></span> Products!</p>
-  </div>
+  <section id="cart_items">
+    <div class="container">
+      <div class="breadcrumbs">
+        <ol class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li class="active">Shopping Cart</li>
+        </ol>
+      </div>
 
-  <% @cart_products.each do |product|%>
-  <div data-equalizer class="cart-product large-12 column mb1">
-    <div class="column large-2 text-center p0" data-equalizer-watch>
+      
+      <div class="table-responsive cart_info">
+        <table class="table table-condensed">
+          <thead>
+            <tr class="cart_menu">
+              <td class="image">Item</td>
+              <td class="description"></td>
+              <td class="price">Price</td>
+              <td class="quantity">Quantity</td>
+              <td class="total">Total</td>
+              <td></td>
+            </tr>
+          </thead>
+          <% @cart_products.each do |product|%>
+          <tbody>
 
+            <tr class="rowid"> 
+              <td class="cart_product">
+                <a href=""><%= image_tag(product.featured_image) %></a>
+              </td>
+              <td class="cart_description">
+                <h4><%= product.description%></h4>
+              </td>
+              <td class="cart_price">
+                <p>$59</p>
+              </td>
+              <td class="cart_quantity">
+                <div class="cart_quantity_button">
+                  <a class="cart_quantity_up" href=""> + </a>
+                  <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+                  <a class="cart_quantity_down" href=""> - </a>
+                </div>
+              </td>
+              <td class="cart_total">
+                <p class="cart_total_price">$59</p>
+              </td>
+              <td class="cart_delete">
+                <%=link_to "" , data: {targetUrl: remove_from_cart_path(product)} do%>
+                  <i class="fa fa-times"></i>
+                <%end%>
+              </td>
+            </tr>
+          </tbody>
+<%end%>
+        </table>
+      </div>
+      
     </div>
-    <div class="column large-7 glassy-bg text-center" data-equalizer-watch>
-        <p class="scale ptm"> <%= product.name %> </p>
-    </div>
-    <div class="column large-3 primary-bg text-center radius-r1" data-equalizer-watch>
-      <%=link_to "" , data: {targetUrl: remove_from_cart_path(product)} do%>
-        <i class="fi-x right"></i>
-      <%end%>
-      <h4 class="scale">$ <%= product.name %></h4>
-    </div>
-  </div>
-  <%end%>
-</div>
+
+  </section> <!--/#cart_items-->
