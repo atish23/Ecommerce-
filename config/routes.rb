@@ -15,5 +15,7 @@ Rails.application.routes.draw do
 	  put 'add/:product_id', to: 'carts#add', as: :add_to
 	  put 'remove/:product_id', to: 'carts#remove', as: :remove_from
 	end
+  
+  get '/wishlists' => "wishlists#new"
 
 end
