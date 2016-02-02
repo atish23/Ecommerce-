@@ -7,39 +7,33 @@
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
 							<div class="view-product">
-								<img src="/assets/1.jpg" alt="" />
-								<h3>ZOOM</h3>
+								<%= image_tag @product.featured_image(:large)%>
+<!-- 								<h3>ZOOM</h3> -->
 							</div>
-							<div id="similar-product" class="carousel slide" data-ride="carousel">
-								
+<!-- 							<div id="similar-product" class="carousel slide" data-ride="carousel">
+								 -->
 								  <!-- Wrapper for slides -->
-								    <div class="carousel-inner">
+<!-- 								    <div class="carousel-inner">
 										<div class="item active">
-										  <a href=""><img src="/assets/product-details/similar1.jpg" alt=""></a>
-										  <a href=""><img src="/assets/product-details/similar2.jpg" alt=""></a>
-										  <a href=""><img src="/assets/product-details/similar3.jpg" alt=""></a>
+										  <a href=""><%#= image_tag @product.images.first.photo.url(:small)%></a>
 										</div>
 										<div class="item">
-										  <a href=""><img src="/assets/product-details/similar1.jpg" alt=""></a>
-										  <a href=""><img src="/assets/product-details/similar2.jpg" alt=""></a>
-										  <a href=""><img src="/assets/product-details/similar3.jpg" alt=""></a>
+										  <a href=""><%#= image_tag @product.images.second.photo.url(:small)%></a>
 										</div>
 										<div class="item">
-										  <a href=""><img src="/assets/product-details/similar1.jpg" alt=""></a>
-										  <a href=""><img src="/assets/product-details/similar2.jpg" alt=""></a>
-										  <a href=""><img src="/assets/product-details/similar3.jpg" alt=""></a>
+										  <a href=""><%#= image_tag @product.images.third.photo.url(:small)%></a>
 										</div>
 										
-									</div>
+									</div> -->
 
 								  <!-- Controls -->
-								  <a class="left item-control" href="#similar-product" data-slide="prev">
+<!-- 								  <a class="left item-control" href="#similar-product" data-slide="prev">
 									<i class="fa fa-angle-left"></i>
 								  </a>
 								  <a class="right item-control" href="#similar-product" data-slide="next">
 									<i class="fa fa-angle-right"></i>
 								  </a>
-							</div>
+							</div> -->
 
 						</div>
 						<div class="col-sm-7">

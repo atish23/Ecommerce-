@@ -53,7 +53,11 @@ class Product < ActiveRecord::Base
     images.first ? images.first.photo.url(image_size) : "no_image_#{image_size.to_s}.jpg"
   end
   end
-
+  def featured_image1(image_size = :large)
+  Rails.cache.fetch("Product-featured_image-#{id}-#{image_size}") do
+    images.first ? images.first.photo.url(image_size) : "no_image_#{image_size.to_s}.jpg"
+  end
+  end
   def image_urls(image_size = :small)
     Rails.cache.fetch("Product-image_urls-#{id}-#{image_size}") do
       images.empty? ? ["no_image_#{image_size.to_s}.jpg"] : images.map{|i| i.photo.url(image_size) }

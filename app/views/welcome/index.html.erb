@@ -8,19 +8,19 @@
 								<div class="product-image-wrapper">
 									<div class="single-products">
 											<div class="productinfo text-center">
-												<%= link_to image_tag(product.featured_image), product_path(product), title: product.name, class:  'clearfix' %>
+												<%= link_to image_tag(product.featured_image(:medium)), product_path(product), title: product.name, class:  'clearfix' %>
 												<p><%= product.name%></p>
-												<h2> <%= product.variants.first.price.to_i %> </h2>
+												<h2>$<%= product.variants.first.price.to_i %> </h2>
 												<p><%= link_to product.name,product_path(product)%></p>
 											</div>
-											<div class="product-overlay">
+<!-- 											<div class="product-overlay">
 												<div class="overlay-content">
-												<%= link_to image_tag(product.featured_image), product_path(product), title: product.name, class:  'clearfix' %>
-												<h2> <%= product.variants.first.price.to_i %> </h2>
-												<p><%= link_to product.name,product_path(product)%></p>
+										<%#= link_to image_tag(product.featured_image(:large)), product_path(product), title: product.name, class:  'clearfix' %>
+												<h2>$<%#= product.variants.first.price.to_i %> </h2>
+												<p><%#= link_to product.name,product_path(product)%></p>
 												</div>
 
-											</div>
+											</div> -->
 									</div>
 									<div class="choose">
 										<ul class="nav nav-pills nav-justified">

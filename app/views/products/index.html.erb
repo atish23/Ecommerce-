@@ -15,7 +15,7 @@
 								<div class="product-image-wrapper">
 									<div class="single-products">
 										<div class="productinfo text-center">
-											 <%= link_to image_tag(product.featured_image), product_path(product), title: product.name, class:  'clearfix' %>
+											 <%= link_to image_tag(product.featured_image(:medium)), product_path(product), title: product.name, class:  'clearfix' %>
 											<h2>$56</h2>
 											<p><%= link_to product.name,product_path(product) %></p>
 											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
