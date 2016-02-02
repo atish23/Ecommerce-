@@ -1,0 +1,5 @@
+ <% @wishlist_products.each do |p| %>
+ 	<% prod = Product.find(p.product_id) %>  
+ 		<li> <%= prod.name %></li>
+  	<li><%= link_to image_tag(prod.featured_image), product_path(p.product_id)  %></li>
+ <%end%>

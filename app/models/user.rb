@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many    :addresses,       dependent: :destroy,       as: :addressable
   accepts_nested_attributes_for :addresses, :user_roles
 
+  has_one :wishlist, dependent: :destroy
+
   def role?(role_name)
     roles.any? {|r| r.name == role_name.to_s}
   end

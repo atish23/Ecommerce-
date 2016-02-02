@@ -24,10 +24,15 @@
 									</div>
 									<div class="choose">
 										<ul class="nav nav-pills nav-justified">
-											
-											<li>
-												<%= link_to  '<i class="fa fa-plus-square"></i> Add to Wishlist'.html_safe , wishlists_path %>
-											</li>
+								 <% if user_signed_in? %>
+								<li>											
+								<%= link_to '<i class="fa fa-plus-square"></i> Add to Wishlistttttt'.html_safe, {:controller => "wishlists", 
+								                       :action => "create", 
+								                       :user_id => current_user.id, 
+								                       :product_id => product.id},
+								                       :method => "post" %>
+								</li>
+								<% end %>
 											<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
 										</ul>
 									</div>

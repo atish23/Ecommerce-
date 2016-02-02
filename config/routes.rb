@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 	  put 'remove/:product_id', to: 'carts#remove', as: :remove_from
 	end
   
-  get '/wishlists' => "wishlists#new"
+  get '/wishlists' => "wishlists#index"
+  post '/wishlists' => "wishlists#create"
+  delete '/wishlists/:id' => "wishlists#destroy"
 
 end
